@@ -1,0 +1,64 @@
+CAZAN BOGDAN-MARIAN 323CB
+
+                            TEMA 1 POO
+
+        Conceptele de abstractizare, mostenire si polimorfism au fost folosite
+cu precadere in clasele Vehicul si mostenitorii sai: Autoturism, Bicicleta,
+Motocicleta si Camion.
+        Clasa Vehciul este o clasa abstracta, care contine mai multe variabile
+de tip protected, variabile mostenite de celelalte 4 clase. De asemenea, avem
+si getteri si setteri pentru fiecare astfel de variabila. Constructorii celor
+4 clase care mostenesc clasa Vehicul se folosesc de asemenea de cosntructorul
+clasei parinte (in mod indirect). De asemenea am declarat in clasa parinte,
+Vehicul, o metoda abstracta, toString, care intoarce un mesaj pentru ficare tip
+de vehicul in parte. Astfel, am indeplinit si conceptul de polimorfism in cadrul
+temei, prin suprascrierea unei metode, dar si conceptul de abstractizare, pentru
+ca daca nu aveam aceasta metoda, atunci nici clasa Vehicul nu avea prea mult sa
+fie una abstracta, doar daca chiar nu voiam sa avem posibilitatea de a o
+instantia.
+        In cadrul temei am folosit diverse clase pentru a ne face viata mult mai
+usoara si pentru a respecta conceptul de programare orientata pe obiecte. Toate
+clasele au comentarii sugestive, insa aici vom aminti 3 clase de o importanta
+ridicata in cadrul temei: clasa Strada, clasa MyPriorityQueue si clasa MyMap.
+
+        1) Clasa Strada: are rolul de a retine detaliile despre o strada, cum ar
+fi: costul strazii respective, limita de gabarit admisa pe acea strada, costul
+total al ambuteiajelor, precum si o lista cu toate ambuteiajele ce au avut loc
+pe respectiva strada.
+
+        2) Clasa MyPriorityQueue: este o clasa pe care am implementat-o in
+special pentru bonus. Aceasta clasa nu implementeaza o coada de prioritati
+generica, intrucat nu s-a pus aceasta conditie. Ea implementeaza o coada de
+prioritati pe un nod definit intern, in cadrul clasei despre care discutam, nodul
+fiind o clasa interna in cadrul clasei noastre. Sunt implementate doar cateva
+operatii asupra cozii, si anume doar cele mai importante: dimensiunea cozii,
+adaugarea cu prioritate a unui nod in coada, si eliminarea unui nod din coada.
+        Coada este folosita la implementarea algoritmului Dijkstra, pentru
+calcularea drumului de cost minim de la un punct de start pana la unul de final.
+
+        3) Clasa MyMap: cea mai importanta si cea mai mare clasa din intreaga
+tema. In aceasta clasa, se face citirea din fisierul de input, map.in, dar se
+face si afisarea output-ului in map.out; toata harta este reprezentata sub forma
+un graf, acesta reprezentat la randul lui sub forma unei matrici de strazi.
+Matricea este formata, asa cum am spus, din strazi, si anume matrix[i][j] are ca
+si element strada dintre punctele Pi si Pj, in ordinea asta. Daca nu exista o
+strada intre aceste doua puncte, atunci valoarea de la coordonatele i si j va fi
+null.
+        In aceasta clasa sunt implementate si cele 3 metode impuse de tema, anume
+addStreet, care adauga o strada in harta noastra, addRestriction, care adauga o
+restrictie pentru o anumita strada, adica practic un ambuteiaj, si ultima metoda,
+drive, care nu face nimic altceva decat sa implementeze Dijkstra pentru a calcula
+costul minim dintre doua puncte, si de a afisa drumul respectiv.
+        Vom lua separat si vom explica pe scurt metoda drive: este metoda care
+implementeaza algoritmul Dijkstra cu cozi. Afla drumul de cost minim de la un
+punct dat la alt punct. De asemenea, este afisata si calea de la punctul de
+inceput la cel de sfarsit, cale specifica costului. Vom retine intr-un vector de
+distante costul minim de la punctul cu index-ul dat la punctul de start. Se
+foloseste implementarea cu coada de prioritate, facandu-se o eliminare din coada,
+urmand ca mai apoi sa se verifice fiecare punct adiacent cu nodul respectiv (prin
+adiacent intelegem un nod in care se intra, fiind vorba de un graf orientat).
+        Pentru afisarea drumului mai avem nevoie de un vector care sa ne arate
+punctul anterior fiecarui punct in parte. Punctul de start nu are anterior. Apoi
+vom apela o functie de afisare, care va afisa drumul in ordine inversa, adica de
+la punctul de final la punctul de inceput, deci functia folosita reda un apel
+recursiv.
